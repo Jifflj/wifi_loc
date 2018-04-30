@@ -10,7 +10,7 @@ ipak <- function(pkg){
 
 pkg <- c("dplyr","nnet", "reshape","bigmemory","magrittr","doFuture","doParallel", "biganalytics","doMC", "arules", "caret", "corrplot", "ggplot2", "ggthemes", "tidyr", "readr" )
 
-ipak(pkg)
+ipak(new.pkg)
 
 sample_train <- read.csv("sample_train.csv", sep=",",na.strings = c("?", "NA"), stringsAsFactors = FALSE)
 #------------------------------Preprocessing for model building---------------------------####
