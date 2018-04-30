@@ -1,16 +1,16 @@
 # list all packages/libraries and assign them to "my_packages"-variable
 
 # load libraries
-ipak <- function(pkg){
-    new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
-    if (length(new.pkg)) 
-        install.packages(new.pkg, dependencies = TRUE)
-    sapply(pkg, require, character.only = TRUE)
+#ipak <- function(pkg){
+#    new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+#   if (length(new.pkg)) 
+#        install.packages(new.pkg, dependencies = TRUE, repos = "http://cran.us.r-project.org")
+#    sapply(pkg, require, character.only = TRUE)
 }
 
-pkg <- c("dplyr","nnet", "reshape","bigmemory","magrittr","doFuture","doParallel", "biganalytics","doMC", "arules", "caret", "corrplot", "ggplot2", "ggthemes", "tidyr", "readr" )
+#pkg <- c("dplyr","nnet", "reshape","bigmemory","magrittr","doFuture","doParallel", "biganalytics","doMC", "arules", "caret", "corrplot", "ggplot2", "ggthemes", "tidyr", "readr" )
 
-ipak(new.pkg)
+#ipak(new.pkg)
 
 sample_train <- read.csv("sample_train.csv", sep=",",na.strings = c("?", "NA"), stringsAsFactors = FALSE)
 #------------------------------Preprocessing for model building---------------------------####
