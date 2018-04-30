@@ -1,13 +1,21 @@
 # list all packages/libraries and assign them to "my_packages"-variable
-my_packages <- c("dplyr","nnet", "reshape","bigmemory","magrittr","doFuture","doParallel", "biganalytics","doMC", "arules", "caret", "corrplot", "ggplot2", "ggthemes", "tidyr", "readr" )
 
 # load libraries
-lapply(my_packages, require, character.only = TRUE)
+ipak <- function(pkg){
+    new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+    if (length(new.pkg)) 
+        install.packages(new.pkg, dependencies = TRUE)
+    sapply(pkg, require, character.only = TRUE)
+}
+
+pkg <- c("dplyr","nnet", "reshape","bigmemory","magrittr","doFuture","doParallel", "biganalytics","doMC", "arules", "caret", "corrplot", "ggplot2", "ggthemes", "tidyr", "readr" )
+
+ipak(pkg)
 
 sample_train <- read.csv("sample_train.csv", sep=",",na.strings = c("?", "NA"), stringsAsFactors = FALSE)
 #------------------------------Preprocessing for model building---------------------------####
 
-sample_train$BUILDINGID <- sample_train$BUILDINGID
+sample_train$BUILDINGID <- as.factor(sample_train$BUILDINGID)
 
 set.seed(405)
 
