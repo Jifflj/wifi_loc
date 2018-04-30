@@ -2,10 +2,12 @@
 my_packages <- c("dplyr","nnet", "reshape","bigmemory","magrittr","doFuture","doParallel", "biganalytics","doMC", "arules", "caret", "corrplot", "ggplot2", "ggthemes", "tidyr", "readr" )
 
 # load libraries
-lapply(my_packages, library, character.only = TRUE)
+lapply(my_packages, require, character.only = TRUE)
 
 sample_train <- read.csv("sample_train.csv", sep=",",na.strings = c("?", "NA"), stringsAsFactors = FALSE)
 #------------------------------Preprocessing for model building---------------------------####
+
+sample_train$BUILDINGID <- sample_train$BUILDINGID
 
 set.seed(405)
 
